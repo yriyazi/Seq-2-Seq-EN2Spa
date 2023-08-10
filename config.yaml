@@ -1,0 +1,45 @@
+# Model hyperparameters
+inference_mode        : True
+learning_rate         : 0.0001
+num_epochs            : 100
+seed                  : 42
+ckpt_save_freq        : 20
+
+Language1 : 'English'
+Language2 : 'Spanish'
+MAX_LENGTH: 18
+
+MAX_LENGTH_Lang1        : 10
+MAX_LENGTH_Lang2        : 19
+
+batch :
+  batch_train_size      : 128
+  Validation_Set        : True
+  batch_validation_size : 700
+  batch_test_size       : 700
+
+# Dataset parameters
+dataset:
+  path                : ./dataset/Eng_Spa.txt
+  train_split         : 0.7
+  Validation_split    : 0.15
+  test_split          : 0.15
+
+
+# Model architecture
+model:
+  name          : 'Seq2seq'
+  pretrained    : True
+  Hidden_layer  : 2
+# Optimization parameters
+optimizer :
+  name            : ADAM
+  weight_decay    : 0.0001
+  betas           : [0.90,0.99]
+
+# Scheduler parameters
+scheduler:
+  name        : LinearLR
+  start_factor: 1
+  end_factor  : 0.5
+  total_iters : 20
